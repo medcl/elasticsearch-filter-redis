@@ -27,7 +27,7 @@ public class RedisSearchFilterPlugin extends AbstractPlugin {
 
     @Override
     public String name() {
-        return "search-filter-redis";
+        return "redis-filter";
     }
 
     @Override

@@ -20,7 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Time: 上午9:12
  */
 public class RedisHanlder {
-    private static ESLogger logger = Loggers.getLogger("sting2int");
+    private static ESLogger logger = Loggers.getLogger("redis_filter");
     private JedisPool jPool;
     private static HashMap<String, RedisHanlder> instance = new HashMap<String, RedisHanlder>();
     private boolean local_mem_cache = true;
@@ -29,7 +29,7 @@ public class RedisHanlder {
     private long ttl = 5 * 60 * 1000; //5 minutes
     private int initialCapicity = 16;
 
-    //trust me,int is bigger enough,or you are using wrong.
+    //trust me,int is bigger enough,if you are using wrong.
     private static ConcurrentHashMap<String, ConcurrentHashMap<String, Integer>> local_cache;// = new HashMap<String, HashMap<String, Integer>>();
     private static ConcurrentHashMap<String, LruCache<String, Integer>> local_lru_cache;// = new HashMap<String, LruCache<String, Integer>>();
 

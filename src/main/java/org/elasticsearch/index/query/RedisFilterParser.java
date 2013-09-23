@@ -37,7 +37,7 @@ import static org.elasticsearch.index.query.support.QueryParsers.wrapSmartNameFi
  */
 public class RedisFilterParser implements FilterParser {
 
-    public static final String NAME = "redis";
+    public static final String NAME = "redis_filter";
 
     @Inject
     public RedisFilterParser() {
@@ -52,7 +52,7 @@ public class RedisFilterParser implements FilterParser {
     public Filter parse(QueryParseContext parseContext) throws IOException, QueryParsingException {
         XContentParser parser = parseContext.parser();
 
-        boolean cache = true; // since usually term utils is on repeating terms, cache it by default
+        boolean cache = true; // cache it by default
         CacheKeyFilter.Key cacheKey = null;
         String fieldName = null;
         Object value = null;
