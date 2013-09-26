@@ -16,10 +16,14 @@ package org.elasticsearch.plugin.filter.redis;
  * limitations under the License.
  */
 
+import org.elasticsearch.common.collect.ImmutableList;
 import org.elasticsearch.common.inject.Module;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.query.RedisFilterParser;
 import org.elasticsearch.indices.query.IndicesQueriesModule;
 import org.elasticsearch.plugins.AbstractPlugin;
+
+import java.util.Collection;
 
 /**
  */
@@ -34,10 +38,16 @@ public class RedisSearchFilterPlugin extends AbstractPlugin {
     public String description() {
         return "";
     }
+    Settings settings;
+    @Override
+    public Collection<Module> modules(Settings settings) {
+        this.settings=settings;
+        return ImmutableList.of();
+    }
 
     public void onModule(Module module) {
         if(module instanceof IndicesQueriesModule){
-            RedisFilterParser parser=new RedisFilterParser();
+            RedisFilterParser parser=new RedisFilterParser(this.settings);
             ((IndicesQueriesModule) module).addFilter(parser);
         }
     }

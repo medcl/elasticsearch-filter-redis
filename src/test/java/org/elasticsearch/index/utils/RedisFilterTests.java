@@ -29,14 +29,13 @@ import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.FixedBitSet;
 import org.elasticsearch.common.lucene.Lucene;
 import org.elasticsearch.common.lucene.search.RedisFilter;
-import org.testng.annotations.Test;
 
 /**
  */
-@Test
+//@Test
 public class RedisFilterTests {
 
-    @Test
+//    @Test
     public void testTermFilter() throws Exception {
         String fieldName = "field1";
         Directory rd = new RAMDirectory();

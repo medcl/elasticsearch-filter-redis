@@ -24,6 +24,7 @@ import org.apache.lucene.search.Filter;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.lucene.BytesRefs;
 import org.elasticsearch.common.lucene.search.RedisFilter;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.xcontent.XContentParser;
 import org.elasticsearch.index.cache.filter.support.CacheKeyFilter;
 import org.elasticsearch.index.mapper.MapperService;
@@ -40,7 +41,10 @@ public class RedisFilterParser implements FilterParser {
     public static final String NAME = "redis_filter";
 
     @Inject
-    public RedisFilterParser() {
+    public RedisFilterParser(Settings settings) {
+        System.out.println("redis host:"+settings.get("rtf.filter.redis.host"));
+        System.out.println("redis port:"+settings.get("rtf.filter.redis.port"));
+        //TODO handler default value
     }
 
     @Override

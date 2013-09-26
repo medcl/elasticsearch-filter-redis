@@ -10,7 +10,6 @@ import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.FixedBitSet;
 import org.elasticsearch.common.lucene.Lucene;
 import org.elasticsearch.common.lucene.search.RedisFilter;
-import org.testng.annotations.Test;
 
 /**
  * User: Medcl
@@ -18,7 +17,7 @@ import org.testng.annotations.Test;
  * Time: 上午9:29
  */
 public class RedisHanlderTest {
-    @Test
+//    @Test
     public void testAddNewItem() throws Exception {
 
        {RedisHanlder redisHanlder=RedisHanlder.getInstance("localhost",6379,true,false);
@@ -32,10 +31,10 @@ public class RedisHanlderTest {
 
     /**
      */
-    @Test
+//    @Test
     public static class RedisFilterTests {
 
-        @Test
+//        @Test
         public void testTermFilter() throws Exception {
             String fieldName = "field1";
             Directory rd = new RAMDirectory();
